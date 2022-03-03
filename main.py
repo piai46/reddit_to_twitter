@@ -89,7 +89,7 @@ class ProjectZomboid:
                     if check_id == False:
                         if submission.stickied == False:
                             url = submission.url
-                            title = f'Posted by: u/{str(submission.author)}\n{submission.title}\nredd.it/{str(submission)}\n#ProjectZomboid'
+                            title = f'{submission.title} redd.it/{str(submission)}\n#ProjectZomboid'
                             if 'jpg' in url or 'png' in url:
                                 self.download_image(url)
                                 self.make_tweet(api, title)
@@ -107,7 +107,7 @@ class ProjectZomboid:
                 sleep(60)
             now_date = datetime.now()
             print(f"{now_date.strftime('%d')}/{now_date.strftime('%m')}, {now_date.hour}:{now_date.minute} - ", end="")
-            print('End of submissions, sleeping for 2 hours')
+            print('End of submissions, sleeping for 1 hour')
             print(50*"-")
             sleep(3600)
 
