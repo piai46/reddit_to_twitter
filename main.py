@@ -59,8 +59,10 @@ class ProjectZomboid:
     def make_tweet(self, api, content):
         try:
             print('Posting tweet...')
-            image_path = 'image.jpg'
-            api.update_with_media(image_path, content)
+            path = 'image.jpg'
+            media_response = api.media_upload(path)
+            media_id = media_response.media_id
+            api.update_status(status=content, media_ids=[media_id])
             print('Tweet posted!')
         except Exception as error:
             print(f'Failed to post, error: {error}')
